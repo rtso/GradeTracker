@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *myGrade;
 @property (weak, nonatomic) IBOutlet UIStackView *totalPossible;
 @property (strong, nonatomic) NSArray *courses;
+@property (strong, nonatomic) NSArray *gradeTypes;
 
 @end
 
@@ -23,15 +24,29 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    if (self.courses != nil) {
-        return [self.courses count];
+    if (pickerView == self.CoursePicker) {
+        if (self.courses != nil) {
+            return [self.courses count];
+        }
+    }
+    if (pickerView == self.GradeTypePicker) {
+        if (self.gradeTypes != nil) {
+            return [self.gradeTypes count];
+        }
     }
     return 0;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    if (self.courses != nil) {
-        return [self.courses objectAtIndex:row];
+    if (pickerView == self.CoursePicker) {
+        if (self.courses != nil) {
+            return [self.courses objectAtIndex:row];
+        }
+    }
+    if (pickerView == self.GradeTypePicker) {
+        if (self.gradeTypes != nil) {
+            return [self.gradeTypes objectAtIndex:row];
+        }
     }
     return nil;
 }
@@ -40,6 +55,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.courses = @[@"Algorithms and Models of Computation", @"Introduction to Modern Dance", @"Systems Programming", @"The World Through Museums", @"Quantum Physics"];
+    self.gradeTypes = @[@"Homework", @"Quiz", @"Exam", @"Lab", @"Extra Credit"];
 }
 
 - (void)didReceiveMemoryWarning {
