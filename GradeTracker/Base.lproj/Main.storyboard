@@ -32,6 +32,9 @@
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fq6-Ac-6FW">
                                                 <rect key="frame" x="0.0" y="-216" width="320" height="216"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="iq9-xq-pYK"/>
+                                                </connections>
                                             </pickerView>
                                         </subviews>
                                     </stackView>
@@ -76,7 +79,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="SfE-fb-weR">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="110"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your grade" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F3j-a2-hit">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My grade" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F3j-a2-hit">
                                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -110,6 +113,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCc-Y9-huO">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="doneEnteringGrade:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D6O-oi-SEc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -165,6 +171,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="CoursePicker" destination="fq6-Ac-6FW" id="Xx2-EG-cov"/>
+                        <outlet property="GradeTypePicker" destination="dSr-Bw-2cD" id="nTg-ah-cs0"/>
+                        <outlet property="myGrade" destination="F3j-a2-hit" id="25K-yL-uOw"/>
+                        <outlet property="totalPossible" destination="bGx-L7-d7N" id="hbY-Rd-cwt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
